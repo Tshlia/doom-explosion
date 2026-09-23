@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Doom Explosion</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at center,#32105f 0,#10051f 45%,#05020b 100%);font-family:Arial,sans-serif;color:#fff}main{text-align:center;z-index:2;padding:2rem}h1{font-size:clamp(3rem,11vw,9rem);line-height:.9;margin:0;text-transform:uppercase;letter-spacing:-.08em;text-shadow:0 0 15px #ff2bd6,0 0 45px #7b2cff,8px 8px 0 #ff6b00;animation:pulse 1.2s infinite alternate}p{font-size:1.1rem;opacity:.8;margin:2rem 0}button{border:0;border-radius:999px;padding:1rem 2rem;font-size:1rem;font-weight:800;cursor:pointer;background:linear-gradient(90deg,#ff2bd6,#ff8a00);color:white;box-shadow:0 0 30px #ff2bd688}button:hover{transform:scale(1.06)}.piece{position:fixed;width:10px;height:18px;top:-30px;animation:fall linear forwards;z-index:1}@keyframes fall{to{transform:translateY(110vh) rotate(900deg)}}@keyframes pulse{to{transform:scale(1.03);filter:hue-rotate(35deg)}}.burst{position:fixed;left:50%;top:50%;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 30px 10px #ff2bd6;animation:burst .8s ease-out forwards}@keyframes burst{to{transform:scale(35);opacity:0}}
+</style>
+</head>
+<body><main><h1>doom<br>explosion</h1><p>Press the button. Embrace the chaos.</p><button onclick="explode()">EXPLODE AGAIN 💥</button></main>
+<script>
+const colors=['#ff2bd6','#7b2cff','#00e5ff','#ffe600','#ff6b00','#52ff78'];
+function explode(){for(let i=0;i<180;i++){const e=document.createElement('span');e.className='piece';e.style.left=Math.random()*100+'vw';e.style.background=colors[Math.floor(Math.random()*colors.length)];e.style.transform='rotate('+Math.random()*360+'deg)';e.style.animationDuration=(2+Math.random()*4)+'s';e.style.animationDelay=Math.random()*.8+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),6500)}const b=document.createElement('div');b.className='burst';document.body.appendChild(b);setTimeout(()=>b.remove(),900)}explode();
+</script></body></html>
